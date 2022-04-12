@@ -11,7 +11,7 @@ namespace geniikw.DataRenderer2D
 
         public enum Mode
         {
-            Noraml = 0,
+            Normal = 0,
             Loop = 1,
             RoundEdge = 2
         }
@@ -53,7 +53,7 @@ namespace geniikw.DataRenderer2D
                 {
                     startRatio = 0f,
                     endRatio = 1f,
-                    mode = Mode.Noraml,
+                    mode = Mode.Normal,
                     divideLength = 1f,
                     divideAngle = 10f,
                     color = new()

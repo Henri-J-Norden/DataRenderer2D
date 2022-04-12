@@ -32,10 +32,12 @@ namespace geniikw.DataRenderer2D.Editors {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            if (GUILayout.Button("MakeNewMesh"))
+            if (GUILayout.Button("Update line mesh"))
             {
                 ((WorldLine)target).MakeNewMesh();
+                ((WorldLine)target).GeometyUpdateFlagUp();
             }
+            
         }
     }
 

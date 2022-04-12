@@ -34,7 +34,7 @@ namespace geniikw.DataRenderer2D.Editors
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            property.serializedObject.Update();
+            //property.serializedObject.Update();
             position.height = EditorGUIUtility.singleLineHeight;
             EditorGUI.PropertyField(position, property.FindPropertyRelative("mode"));
             position.y += EditorGUIUtility.singleLineHeight;

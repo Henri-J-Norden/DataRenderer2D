@@ -39,6 +39,22 @@ namespace geniikw.DataRenderer2D
             Push(new Point(worldPosition, nextOffset, prevOffset, width));
         }
 
+        public void PushLocal(Point p)
+        {
+            if (mode == LineMode.BezierMode)
+                throw new Exception("can't add");
+
+            points.Add(p);
+
+            if (EditCallBack != null)
+                EditCallBack();
+        }
+
+        public void PushLocal(Vector3 worldPosition, Vector3 nextOffset, Vector3 prevOffset, float width)
+        {
+            PushLocal(new Point(worldPosition, nextOffset, prevOffset, width));
+        }
+
         public void EditPoint(int idx, Point p)
         {
             if(mode == LineMode.BezierMode &&( idx <0 || idx > 2))

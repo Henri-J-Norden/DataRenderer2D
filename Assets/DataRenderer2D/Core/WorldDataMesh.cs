@@ -11,6 +11,7 @@ namespace geniikw.DataRenderer2D
     public abstract class WorldDataMesh : MonoBehaviour
     {
         public bool updateInUpdate = true;
+        public bool updateInStart = false;
 
         IEnumerable<IMesh> _mesh;
 
@@ -40,6 +41,12 @@ namespace geniikw.DataRenderer2D
             AllocateBuffer(bufferSize);
         }
 
+        public void Start() 
+        {
+            Reset();
+            if (updateInStart) GeometyUpdateFlagUp();
+        }
+
         public void Reset()
         {
             var mf = GetComponent<MeshFilter>();
@@ -52,7 +59,7 @@ namespace geniikw.DataRenderer2D
 
         private void Update()
         {
-            m_geometryUpdateFlag = true;
+            if (updateInUpdate) GeometyUpdateFlagUp();
         }
         
         public void LateUpdate()

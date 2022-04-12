@@ -7,7 +7,7 @@ namespace geniikw.DataRenderer2D
 {
     public class WorldLine : WorldDataMesh , ISpline
     {
-        public Spline line;
+        public Spline line = Spline.Default;
 
         Spline ISpline.Line
         {
@@ -17,7 +17,7 @@ namespace geniikw.DataRenderer2D
             }
         }
 
-        public bool useUpdate = false;
+        //public bool useUpdate = false;
 
         IMeshDrawer m_builder;
         
