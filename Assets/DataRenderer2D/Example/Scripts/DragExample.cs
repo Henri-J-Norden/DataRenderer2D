@@ -10,8 +10,8 @@ namespace geniikw.DataRenderer2D.Example
     {
 
         public UILine line;
-        public Gradient grad;
-        public Gradient red;
+        public GradientField grad;
+        public GradientField red;
         private bool isGrad = false;
 
         public void Clear()

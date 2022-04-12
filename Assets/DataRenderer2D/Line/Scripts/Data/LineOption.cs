@@ -32,7 +32,7 @@ namespace geniikw.DataRenderer2D
         [Range(5, 180)]
         public float divideAngle;
 
-        public Gradient color;//class reference type;
+        public GradientField color;//class reference type;
 
         public LineJointOption jointOption;
 
@@ -56,7 +56,7 @@ namespace geniikw.DataRenderer2D
                     mode = Mode.Noraml,
                     divideLength = 1f,
                     divideAngle = 10f,
-                    color = new Gradient()
+                    color = new()
                 };
             }
         }
