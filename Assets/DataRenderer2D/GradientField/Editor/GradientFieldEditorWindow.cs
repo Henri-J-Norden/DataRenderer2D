@@ -299,6 +299,9 @@ public class GradientFieldEditorWindow : EditorWindow {
 	void Save() {
 		GradientFieldDrawer.ResetGradient();
 
+		m_property.FindPropertyRelative("m_reloadSerializedAlpha").boolValue = true;
+		m_property.FindPropertyRelative("m_reloadSerializedColor").boolValue = true;
+
 		m_property.serializedObject.ApplyModifiedProperties();
 
 		int excludeAlpha = -1;

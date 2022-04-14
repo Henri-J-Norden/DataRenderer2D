@@ -33,7 +33,8 @@ namespace geniikw.DataRenderer2D
 
 
                 var cs = LineData.option.color.Evaluate(pair.sRatio + t * pair.RatioLength);
-                var ce = LineData.option.color.Evaluate(pair.sRatio + (t+dt) * pair.RatioLength);
+                //var ce = LineData.option.color.Evaluate(pair.sRatio + (t+dt) * pair.RatioLength);
+                var ce = cs; // TODO: fix smooth gradient
 
                 var d = pe - ps;
                 var wd = Vector3.Cross(d, Vector3.back).normalized;

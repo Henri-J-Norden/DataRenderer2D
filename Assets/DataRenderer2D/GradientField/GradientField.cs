@@ -63,9 +63,13 @@ public class GradientField
 		get => m_mode;
 		set => m_mode = value;
 	}
+
+	[SerializeField] internal bool m_reloadSerializedColor, m_reloadSerializedAlpha;
+
 	public GradientColorKey[] colorKeys {
 		get {
-			if(m_colorKeys == null) {
+			if(m_colorKeys == null || m_reloadSerializedColor) {
+				m_reloadSerializedColor = false;
 				colorKeys = SerializableColorKey.GetKeys(m_serializedColorKeys);
 			}
 			return m_colorKeys;
@@ -96,7 +100,8 @@ public class GradientField
 	}
 	public GradientAlphaKey[] alphaKeys {
 		get {
-			if(m_alphaKeys == null) {
+			if(m_alphaKeys == null || m_reloadSerializedAlpha) {
+				m_reloadSerializedAlpha = false;
 				alphaKeys = SerializableAlphaKey.GetKeys(m_serializedAlphaKeys);
 			}
 			return m_alphaKeys;

@@ -14,6 +14,8 @@ public class GradientFieldDrawer : PropertyDrawer {
 
 	private static Texture2D processedGradient;
 
+	//private static GradientField currentGradient;
+
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
 		return EditorGUIUtility.singleLineHeight;
 	}
@@ -42,6 +44,7 @@ public class GradientFieldDrawer : PropertyDrawer {
 	}
 
 	void OpenWindow(SerializedProperty property) {
+		/*
 		var target = property.serializedObject.targetObject;
 		string[] parts = property.propertyPath.Split('.');
 		
@@ -55,7 +58,8 @@ public class GradientFieldDrawer : PropertyDrawer {
 			currentType = currentField.FieldType;
 		}
 
-		GradientField gradient = (GradientField)currentValue;
+		currentGradient = (GradientField)currentValue;
+		*/
 
 		GradientFieldEditorWindow window = ScriptableObject.CreateInstance<GradientFieldEditorWindow>();
 		window.Setup(property);
