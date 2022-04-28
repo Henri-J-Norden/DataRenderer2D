@@ -39,11 +39,11 @@ namespace geniikw.DataRenderer2D
         protected virtual void Awake()
         {
             AllocateBuffer(bufferSize);
+            Reset();
         }
 
         public void Start() 
         {
-            Reset();
             if (updateInStart) GeometyUpdateFlagUp();
         }
 
@@ -77,7 +77,7 @@ namespace geniikw.DataRenderer2D
 
             var mesh = new Mesh();
             mesh.name = name;
-            mf.mesh = mesh;
+            mf.sharedMesh = mesh;
         }
 
 
@@ -115,7 +115,7 @@ namespace geniikw.DataRenderer2D
 
             while (vc < vBuffer.Length)
             {
-                vBuffer[vc] = Vector3.zero;
+                vBuffer[vc] = vBuffer[0];// Vector3.zero; - breaks collider bounds
                 uvBuffer[vc] = Vector2.zero;
                 colorBuffer[vc] = Color.white;
                 vc++;
@@ -134,6 +134,9 @@ namespace geniikw.DataRenderer2D
             mf.sharedMesh.RecalculateNormals();
             mf.sharedMesh.RecalculateTangents();
             mf.sharedMesh.RecalculateBounds();
+
+            var collider = GetComponent<MeshCollider>();
+            if (collider != null) collider.sharedMesh = mf.sharedMesh;
         }
         
         private void AllocateBuffer(int size)
